@@ -11,6 +11,9 @@
 <meta charset="UTF-8">
 <link href="${path}/resources/css/boardlist.css" rel="stylesheet" />
 <link href="${path}/resources/css/common.css" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
 <title>게시판 리스트</title>
 </head>
 <body class="body">
@@ -19,11 +22,10 @@
 		<div class="board">
 			<div class="board_1">
 				<div class="title">
-					<h1>공지사항</h1>
+					<h1>게시판</h1>
 					<div class="search_area">
 						<form>
 							<input type="search" placeholder="Search"> <span>검색</span>
-						</form>
 						</form>
 					</div>
 				</div>
@@ -62,10 +64,16 @@
 					</tbody>
 				</table>
 				<div class="number">
-					<a class="contents6">1</a>
+					<ul class="num_ul">
+						<c:forEach var="num" begin="${paginationVO.getStartPage() }" end="${paginationVO.getEndPage() }">
+							<li class="num_li">
+								<a href="#">${num }</a>
+							</li>
+						</c:forEach>
+					</ul>
 				</div>
 				<div class="enroll">
-					<input type="button" value="등록" onclick="location.href='http://localhost:8080/insert'">
+					<input type="button" value="등록" onclick="location.href='/insert'">
 				</div>
 			</div>
 		</div>

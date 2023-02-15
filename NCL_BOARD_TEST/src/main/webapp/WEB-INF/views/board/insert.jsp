@@ -33,7 +33,7 @@
 							<td id="noticEmpName"><input class="inp_writer" type="text"></td>
 							<th>등록일</th>
 							<td id="noticRegDate"><script>
-								var date = new Date().toLocaleString();
+								var date = new Date().toLocaleDateString();
 								document.getElementById('noticRegDate').innerText = date;
 							</script></td>
 							<tr>
@@ -47,7 +47,7 @@
 						</thead>
 					</table>
 					<div class="btns">
-						<input type="button" value="취소" onclick="location.href='http://localhost:8080/list'">
+						<input type="button" value="취소" onclick="location.href='/list'">
 						<input type="button" value="등록">
 					</div>
 				</form>

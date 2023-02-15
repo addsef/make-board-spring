@@ -7,7 +7,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="${path}/resources/css/common.css" rel="stylesheet"/>
+<link href="${path}/resources/css/common.css" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css"
+	rel="stylesheet">
 <title>details</title>
 </head>
 <body>
@@ -31,26 +36,26 @@
 					<thead>
 						<tr>
 							<th>제목</th>
-							<td colspan="3" id="noticeTitle"><%= boardDetailVO.getTitle() %></td>
+							<td colspan="3" id="noticeTitle"><%=boardDetailVO.getTitle()%></td>
 						</tr>
 						<th>등록자</th>
-						<td id="noticEmpName"><%= boardDetailVO.getWriter() %></td>
+						<td id="noticEmpName"><%=boardDetailVO.getWriter()%></td>
 						<th>등록일</th>
-						<td id="noticRegDate"><%= boardDetailVO.getRegDate() %></td>
+						<td id="noticRegDate"><%=boardDetailVO.getRegDate()%></td>
 						<tr>
 							<th>내용</th>
 							<td id="contrnTd" colspan="3" height="400" valign="top">
 								<div class="contents6" id="noticeContents">
-									<%= boardDetailVO.getContent() %>
+									<%=boardDetailVO.getContent()%>
 								</div>
 							</td>
 						</tr>
 					</thead>
 				</table>
-				<div class="btns"> 
-					<input type="button" value="목록" onclick="location.href='http://localhost:8080/list'">
-					<input type="button" value="수정">
-					<input type="button" value="삭제">
+				<div class="btns">
+					<input type="button" value="목록"
+						onclick="location.href='/list'"> <input
+						type="button" value="수정"> <input type="button" value="삭제">
 				</div>
 			</div>
 		</div>
