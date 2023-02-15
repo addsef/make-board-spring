@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+td {
+	height: 30px;
+	padding: 10px 10px;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 20px;
+	color: black;
+	text-align: center;
+	word-break: keep-all;
+}
+
+th {
+	height: 30px;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 20px;
+	white-space: nowrap;
+	padding: 10px 5px;
+	color: black;
+}
+
+.enroll {
+  float: right;
+  margin-bottom: 20px;
+}
+
+.enroll > input {
+  width: 50px;
+  height: 40px;
+  border: none;
+  background-color: #00559d;
+  color: #fff;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
