@@ -354,3 +354,18 @@ h1 {
   margin-bottom: 20px;
   cursor: pointer;
 }
+
+.update {
+  float: right;
+  margin-bottom: 20px;
+}
+
+.update > input {
+  width: 50px;
+  height: 40px;
+  border: none;
+  background-color: #00559d;
+  color: #fff;
+  margin-bottom: 20px;
+  cursor: pointer;
+}

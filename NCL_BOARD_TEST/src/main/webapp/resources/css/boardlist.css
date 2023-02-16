@@ -35,3 +35,9 @@ th {
   margin-bottom: 20px;
   cursor: pointer;
 }
+
+.num_ul, .num_li {
+	list-style-type: none;
+	float: left;
+	margin-left: 10px;
+}

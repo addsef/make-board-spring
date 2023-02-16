@@ -15,7 +15,7 @@
 		<div class="head">
 			<h1>글 등록하기</h1>
 			<div class="body">
-				<form>
+				<form action="/insBoard" method="post">
 					<table class="b_3">
 						<colgroup>
 							<col width="18%">
@@ -27,28 +27,28 @@
 							<tr>
 								<th>제목</th>
 								<td colspan="3" id="noticeTitle"><input class="inp_title"
-									type="text"></td>
+									type="text" name="title"></td>
 							</tr>
 							<th>등록자</th>
-							<td id="noticEmpName"><input class="inp_writer" type="text"></td>
+							<td id="noticEmpName"><input class="inp_writer" type="text" name="writer"></td>
 							<th>등록일</th>
-							<td id="noticRegDate"><script>
-								var date = new Date().toLocaleString();
-								document.getElementById('noticRegDate').innerText = date;
-							</script></td>
+							<td id="noticRegDate"><input type="date" name="regDate" id="regDate" readonly></td>
+							<script>
+							 document.getElementById('regDate').value = new Date().toISOString().substring(0, 10);;
+							</script>
 							<tr>
 								<th>내용</th>
 								<td id="contrnTd" colspan="3" height="400" valign="top">
 									<div class="contents6" id="noticeContents">
-										<textarea></textarea>
+										<textarea name="content"></textarea>
 									</div>
 								</td>
 							</tr>
 						</thead>
 					</table>
 					<div class="btns">
-						<input type="button" value="취소" onclick="location.href='http://localhost:8080/list'">
-						<input type="button" value="등록">
+						<input type="button" value="취소" onclick="location.href='/list'">
+						<input type="submit" value="등록">
 					</div>
 				</form>
 			</div>
