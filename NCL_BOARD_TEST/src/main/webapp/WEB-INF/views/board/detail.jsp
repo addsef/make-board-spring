@@ -52,11 +52,16 @@
 						</tr>
 					</thead>
 				</table>
-				<div class="btns">
-					<input type="button" value="목록"
-						onclick="location.href='/list'"> <input
-						type="button" value="수정"> <input type="button" value="삭제">
-				</div>
+				<form action="/delBoard" method="post">
+					<div class="btns">
+						<input type="button" value="목록" onclick="location.href='/list'">
+						<input type="button" value="수정"
+							onclick="location.href='/update/<%=boardDetailVO.getIdx()%>'">
+						<input type="hidden" name="idx"
+							value="<%=boardDetailVO.getIdx()%>"> <input type="submit"
+							value="삭제">
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>

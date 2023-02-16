@@ -47,6 +47,7 @@
 						</tr>
 					</thead>
 					<tbody>
+					<!-- 컨트롤러로부터 현재 페이지 인덱스를 받아와서 해당 페이지에 있는 게시글들만 보여지도록  -->
 						<%
 						@SuppressWarnings("unchecked")
 						List<BoardVO> boardListVO = (List<BoardVO>) request.getAttribute("boardListVO");
@@ -64,11 +65,10 @@
 					</tbody>
 				</table>
 				<div class="number">
-					<ul class="num_ul">
+				<!-- 목록 페이지 -->
+					<ul class="num_ul" style="display: inline;">
 						<c:forEach var="num" begin="${paginationVO.getStartPage() }" end="${paginationVO.getEndPage() }">
-							<li class="num_li">
-								<a href="#">${num }</a>
-							</li>
+							<li style="display: inline;"><a href="/list?pageIndex=${num }">${num }</a></li>
 						</c:forEach>
 					</ul>
 				</div>
