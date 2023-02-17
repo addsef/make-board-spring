@@ -36,8 +36,15 @@ th {
   cursor: pointer;
 }
 
-.num_ul, .num_li {
-	list-style-type: none;
+ul {
+	list-style:none;
+	text-align: center;
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+li {
 	float: left;
-	margin-left: 10px;
+	margin-right: 20px;
 }
