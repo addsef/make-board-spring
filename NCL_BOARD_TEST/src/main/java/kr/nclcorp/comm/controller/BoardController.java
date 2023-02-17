@@ -39,7 +39,7 @@ public class BoardController {
 		// 게시판 리스트
 		List<BoardVO> boardListVO = boardService.selBoardList(boardVO);
 		model.addAttribute("boardListVO", boardListVO);
-
+		
 		return "board/list";
 	}
 

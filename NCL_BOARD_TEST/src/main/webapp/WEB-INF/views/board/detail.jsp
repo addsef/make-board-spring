@@ -52,6 +52,7 @@
 						</tr>
 					</thead>
 				</table>
+				<!-- 1페이지나 라스트페이지에선 이전 또는 다음 버튼 disabled -->
 				<form action="/delBoard" method="post">
 					<div class="btns">
 						<input type="button" value="목록" onclick="location.href='/list/?pageIndex=<%=boardDetailVO.getCurPage()%>'">

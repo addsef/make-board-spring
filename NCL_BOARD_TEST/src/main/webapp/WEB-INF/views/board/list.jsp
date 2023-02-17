@@ -18,7 +18,7 @@
 	href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css"
 	rel="stylesheet">
 <title>게시판 리스트</title>
-</head>
+</head>	
 <body class="body">
 	<div class="main_contanier">
 		<!-- 게시판 리스트 목록 -->
@@ -69,14 +69,16 @@
 				</table>
 				<div class="number">
 					<!-- 목록 페이지 -->
+					<!-- 현재 페이지가 1이거나 라스트 페이지이면 -->
+					<!-- 이전 버튼 or 다음 버튼 비활성화  -->
 					<ul class="num_ul">
 						<li><a href="/list?pageIndex=${paginationVO.getStartPage() }">First</a></li>
-						<li><a href="/list?pageIndex=${paginationVO.getPrevPage() }">Previous</a></li>
+<%-- 						<li><a id="prev" href="/list?pageIndex=${paginationVO.getPrevPage() }">Previous</a></li> --%>
 						<c:forEach var="num" begin="${paginationVO.getStartPage() }"
 							end="${paginationVO.getEndPage() }">
 							<li><a href="/list?pageIndex=${num }">${num }</a></li>
 						</c:forEach>
-						<li><a href="/list?pageIndex=${paginationVO.getNextPage() }">Next</a></li>
+<%-- 						<li><a href="/list?pageIndex=${paginationVO.getNextPage() }">Next</a></li> --%>
 						<li><a href="/list?pageIndex=${paginationVO.getEndPage() }">Last</a></li>
 					</ul>
 				</div>
