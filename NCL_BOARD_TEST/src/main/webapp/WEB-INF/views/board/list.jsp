@@ -9,11 +9,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="data:,">
 <link href="${path}/resources/css/boardlist.css" rel="stylesheet" />
 <link href="${path}/resources/css/common.css" rel="stylesheet" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css"
+	rel="stylesheet">
 <title>게시판 리스트</title>
 </head>
 <body class="body">
@@ -47,7 +50,7 @@
 						</tr>
 					</thead>
 					<tbody>
-					<!-- 컨트롤러로부터 현재 페이지 인덱스를 받아와서 해당 페이지에 있는 게시글들만 보여지도록  -->
+						<!-- 컨트롤러로부터 현재 페이지 인덱스를 받아와서 해당 페이지에 있는 게시글들만 보여지도록  -->
 						<%
 						@SuppressWarnings("unchecked")
 						List<BoardVO> boardListVO = (List<BoardVO>) request.getAttribute("boardListVO");
@@ -65,11 +68,16 @@
 					</tbody>
 				</table>
 				<div class="number">
-				<!-- 목록 페이지 -->
-					<ul class="num_ul" style="display: inline;">
-						<c:forEach var="num" begin="${paginationVO.getStartPage() }" end="${paginationVO.getEndPage() }">
-							<li style="display: inline;"><a href="/list?pageIndex=${num }">${num }</a></li>
+					<!-- 목록 페이지 -->
+					<ul class="num_ul">
+						<li><a href="/list?pageIndex=${paginationVO.getStartPage() }">First</a></li>
+						<li><a href="/list?pageIndex=${paginationVO.getPrevPage() }">Previous</a></li>
+						<c:forEach var="num" begin="${paginationVO.getStartPage() }"
+							end="${paginationVO.getEndPage() }">
+							<li><a href="/list?pageIndex=${num }">${num }</a></li>
 						</c:forEach>
+						<li><a href="/list?pageIndex=${paginationVO.getNextPage() }">Next</a></li>
+						<li><a href="/list?pageIndex=${paginationVO.getEndPage() }">Last</a></li>
 					</ul>
 				</div>
 				<div class="enroll">
