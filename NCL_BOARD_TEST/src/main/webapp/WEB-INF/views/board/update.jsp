@@ -17,9 +17,6 @@
 <title>글 수정</title>
 </head>
 <body>
-	<%
-	BoardVO boardUpdateVO = (BoardVO) request.getAttribute("boardDetailVO");
-	%>
 	<!-- 글 수정 폼 -->
 	<!-- 입력 태그 value 현 index값의 title, content등이 있어야 함 -->
 	<!-- 이를 수정하고 확인 버튼 누르면 /update  + idx 파라미터로 같이 보냄. -->
@@ -39,12 +36,12 @@
 							<tr>
 								<th>제목</th>
 								<td colspan="3" id="noticeTitle"><input type="text"
-									value="<%=boardUpdateVO.getTitle()%>" name="title" class="up_title"></td>
+									value=${boardDetailVO.getTitle() } name="title" class="up_title"></td>
 							</tr>
 							<tr>
 								<th>등록자</th>
 								<td id="noticEmpName"><input type="text"
-									value="<%=boardUpdateVO.getWriter()%>" name="writer" class="up_writer" tabindex="-1" readonly></td>
+									value=${boardDetailVO.getWriter() } name="writer" class="up_writer" tabindex="-1" readonly></td>
 								<th>등록일</th>
 								<td id="noticRegDate"><input type="date" name="regDate"
 									id="regDate" class="up_date" tabindex="-1" readonly></td>
@@ -53,7 +50,7 @@
 								<th>내용</th>
 								<td id="contrnTd" colspan="3" height="400" valign="top">
 									<div class="contents6" id="noticeContents">
-										<textarea name="content" class="up_content"><%=boardUpdateVO.getContent()%></textarea>
+										<textarea name="content" class="up_content">${boardDetailVO.getContent() }</textarea>
 									</div>
 								</td>
 							</tr>
@@ -66,7 +63,7 @@
 					<div class="update">
 						<input type="button" value="취소" onclick="location.href='/list'">
 						<input type="hidden" name="idx"
-							value="<%=boardUpdateVO.getIdx()%>"> <input type="submit"
+							value="${boardDetailVO.getIdx() }"> <input type="submit"
 							value="저장">
 					</div>
 				</form>
