@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <%@page import="kr.nclcorp.comm.vo.BoardVO"%>
 <%@page import="kr.nclcorp.comm.vo.PaginationVO"%>
@@ -18,7 +21,7 @@
 	href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css"
 	rel="stylesheet">
 <title>게시판 리스트</title>
-</head>	
+</head>
 <body class="body">
 	<div class="main_contanier">
 		<!-- 게시판 리스트 목록 -->
@@ -34,7 +37,7 @@
 				</div>
 				<table class="b_2">
 					<colgroup>
-						<col width="5%">
+						<%-- 						<col width="5%"> --%>
 						<col width="50%">
 						<col width="20%">
 						<col width="20%">
@@ -42,7 +45,7 @@
 					</colgroup>
 					<thead>
 						<tr>
-							<th style="padding: 8px;"></th>
+							<!-- 							<th style="padding: 8px;"></th> -->
 							<th style="padding: 8px;">제목</th>
 							<th style="padding: 8px;">등록자</th>
 							<th style="padding: 8px;">등록일</th>
@@ -57,10 +60,12 @@
 						for (BoardVO board : boardListVO) {
 						%>
 						<tr>
-							<td><%=board.getIdx()%></td>
+							<!-- 							<td></td> -->
 							<td><a href="/detail/<%=board.getIdx()%>"><%=board.getTitle()%></a></td>
 							<td><%=board.getWriter()%></td>
-							<td><%=board.getRegDate()%></td>
+<%-- 							<% String date = board.getRegDate().substring(0, 10);  --%>
+<%-- 							%> --%>
+							<td><%=board.getRegDate().substring(0, 10) %></td>
 						</tr>
 						<%
 						}
@@ -73,12 +78,13 @@
 					<!-- 이전 버튼 or 다음 버튼 비활성화  -->
 					<ul class="num_ul">
 						<li><a href="/list?pageIndex=${paginationVO.getStartPage() }">First</a></li>
-<%-- 						<li><a id="prev" href="/list?pageIndex=${paginationVO.getPrevPage() }">Previous</a></li> --%>
+						<li><a id="prev"
+							href="/list?pageIndex=${paginationVO.getPrevPage() }">Previous</a></li>
 						<c:forEach var="num" begin="${paginationVO.getStartPage() }"
 							end="${paginationVO.getEndPage() }">
 							<li><a href="/list?pageIndex=${num }">${num }</a></li>
 						</c:forEach>
-<%-- 						<li><a href="/list?pageIndex=${paginationVO.getNextPage() }">Next</a></li> --%>
+						<li><a href="/list?pageIndex=${paginationVO.getNextPage() }">Next</a></li>
 						<li><a href="/list?pageIndex=${paginationVO.getEndPage() }">Last</a></li>
 					</ul>
 				</div>
