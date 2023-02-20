@@ -38,15 +38,20 @@
 							<th>제목</th>
 							<td colspan="3" id="noticeTitle"><%=boardDetailVO.getTitle()%></td>
 						</tr>
+						<tr>
 						<th>등록자</th>
 						<td id="noticEmpName"><%=boardDetailVO.getWriter()%></td>
 						<th>등록일</th>
-						<td id="noticRegDate"><%=boardDetailVO.getRegDate()%></td>
+						<td id="noticRegDate"><%=boardDetailVO.getRegDate().substring(0, 10)%></td>
+						</tr>
 						<tr>
 							<th>내용</th>
 							<td id="contrnTd" colspan="3" height="400" valign="top">
 								<div class="contents6" id="noticeContents">
-									<%=boardDetailVO.getContent()%>
+									<%	String content = boardDetailVO.getContent();
+										content = content.replace("\r\n","<br>");
+									%>
+									<%= content %>
 								</div>
 							</td>
 						</tr>

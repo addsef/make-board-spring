@@ -63,9 +63,9 @@
 							<!-- 							<td></td> -->
 							<td><a href="/detail/<%=board.getIdx()%>"><%=board.getTitle()%></a></td>
 							<td><%=board.getWriter()%></td>
-<%-- 							<% String date = board.getRegDate().substring(0, 10);  --%>
-<%-- 							%> --%>
-							<td><%=board.getRegDate().substring(0, 10) %></td>
+							<%-- 							<% String date = board.getRegDate().substring(0, 10);  --%>
+							<%-- 							%> --%>
+							<td><%=board.getRegDate().substring(0, 10)%></td>
 						</tr>
 						<%
 						}
@@ -84,15 +84,32 @@
 							end="${paginationVO.getEndPage() }">
 							<li><a href="/list?pageIndex=${num }">${num }</a></li>
 						</c:forEach>
-						<li><a href="/list?pageIndex=${paginationVO.getNextPage() }">Next</a></li>
+						<li><a id="next"
+							href="/list?pageIndex=${paginationVO.getNextPage() }">Next</a></li>
 						<li><a href="/list?pageIndex=${paginationVO.getEndPage() }">Last</a></li>
 					</ul>
-				</div>
-				<div class="enroll">
-					<input type="button" value="등록" onclick="location.href='/insert'">
+					<% PaginationVO paginationVO = (PaginationVO) request.getAttribute("paginationVO"); %>
+					<script>
+						<% 
+							if(paginationVO.getCurPage() == paginationVO.getStartPage()) {
+						%>
+								document.getElementById('prev').setAttribute('href', '');
+						<%																
+							}
+						%>
+						<% 
+							if(paginationVO.getCurPage() == paginationVO.getEndPage()) {
+						%>
+								document.getElementById('next').setAttribute('href', '');
+						<% 
+							}
+						%>
+					</script>
+					<div class="enroll">
+						<input type="button" value="등록" onclick="location.href='/insert'">
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 </body>
 </html>
