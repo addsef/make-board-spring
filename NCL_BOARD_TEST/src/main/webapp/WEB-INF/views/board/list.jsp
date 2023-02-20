@@ -82,29 +82,18 @@
 							href="/list?pageIndex=${paginationVO.getPrevPage() }">Previous</a></li>
 						<c:forEach var="num" begin="${paginationVO.getStartPage() }"
 							end="${paginationVO.getEndPage() }">
-							<li><a href="/list?pageIndex=${num }">${num }</a></li>
+							<li><a id="cur" href="/list?pageIndex=${num }">${num }</a></li>
 						</c:forEach>
 						<li><a id="next"
 							href="/list?pageIndex=${paginationVO.getNextPage() }">Next</a></li>
 						<li><a href="/list?pageIndex=${paginationVO.getEndPage() }">Last</a></li>
 					</ul>
-					<% PaginationVO paginationVO = (PaginationVO) request.getAttribute("paginationVO"); %>
-					<script>
-						<% 
-							if(paginationVO.getCurPage() == paginationVO.getStartPage()) {
-						%>
-								document.getElementById('prev').setAttribute('href', '');
-						<%																
-							}
-						%>
-						<% 
-							if(paginationVO.getCurPage() == paginationVO.getEndPage()) {
-						%>
-								document.getElementById('next').setAttribute('href', '');
-						<% 
-							}
-						%>
-					</script>
+					<c:if test="${paginationVO.getCurPage() eq paginationVO.getStartPage() }">
+						<script>document.getElementById('prev').setAttribute('href', '');</script>
+					</c:if>
+					<c:if test="${paginationVO.getCurPage() eq paginationVO.getEndPage() }">
+						<script>document.getElementById('next').setAttribute('href', '');</script>
+					</c:if>
 					<div class="enroll">
 						<input type="button" value="등록" onclick="location.href='/insert'">
 					</div>
