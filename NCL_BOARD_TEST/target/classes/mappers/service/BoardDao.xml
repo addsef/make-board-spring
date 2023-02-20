@@ -48,4 +48,5 @@
 		WHERE IDX = #{idx}
 	</delete>
 	
+	
 </mapper>

@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+.inp_title, .inp_writer, .up_title {
+	width: 60%;
+	height: 25px;
+	border: 1px groove whitesmoke;
+	background-color: #fefefe;
+	padding: 0 10px;
+	box-sizing: border-box;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 40px;
+	color: #111111;
+	border-radius: 0;
+	margin-left: 10px;
+}
+
+.inp_date, .up_date, .up_writer {
+	margin-left: 10px;
+	border: none;
+	pointer-events: none;
+}
+
+.inp_content, .up_content {
+	width: 800px;
+	height: 400px; 
+	border: 1px groove whitesmoke;;
+	background-color: #fefefe;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 25px;
+	color: #111111;
+	border-radius: 0;
+}

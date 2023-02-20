@@ -31,7 +31,7 @@ public class BoardController {
 
 		// 게시판 페이징
 		int listCnt = boardService.selBoardListCnt(boardVO);
-		PaginationVO paginationVO = new PaginationVO(listCnt, boardVO.getPageIndex(), 10);
+		PaginationVO paginationVO = new PaginationVO(listCnt, boardVO.getPageIndex(), 5);
 		boardVO.setFirstIndex(paginationVO.getStartIndex()); // 시작 인덱스 설정
 		boardVO.setPageSize(paginationVO.getPageSize()); // 한 페이지당 글 개수 설정
 		model.addAttribute("paginationVO", paginationVO);

@@ -31,7 +31,7 @@ h1 {
 }
 
 .contents3 {
-	font-size: 15px;
+	font-size: 16px;
 	font-family: "NanumSquareExtraBold";
 }
 
@@ -41,13 +41,14 @@ h1 {
 }
 
 .contents5 {
-	font-size: 15px;
+	font-size: 16px;
 	font-family: "NanumSquareBold";
 }
 
 .contents6 {
-	font-size: 15px;
+	font-size: 16px;
 	font-family: "NanumSquare";
+	margin-left: 10px;
 }
 
 /*top*/

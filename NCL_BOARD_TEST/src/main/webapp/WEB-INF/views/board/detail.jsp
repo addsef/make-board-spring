@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@page import="kr.nclcorp.comm.vo.BoardVO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<% pageContext.setAttribute("replaceChar", "\n"); %>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -16,9 +18,6 @@
 <title>details</title>
 </head>
 <body>
-	<%
-	BoardVO boardDetailVO = (BoardVO) request.getAttribute("boardDetailVO");
-	%>
 	<!-- 해당 글의 상세 페이지 -->
 	<!-- 해당 글의 정보가 보여지도록 -->
 	<!-- 글 번호 | 제목 | 내용 | 글쓴이 | 등록일 -->
@@ -36,31 +35,32 @@
 					<thead>
 						<tr>
 							<th>제목</th>
-							<td colspan="3" id="noticeTitle"><%=boardDetailVO.getTitle()%></td>
+							<td colspan="3" id="noticeTitle">${boardDetailVO.getTitle() }</td>
 						</tr>
-						<th>등록자</th>
-						<td id="noticEmpName"><%=boardDetailVO.getWriter()%></td>
-						<th>등록일</th>
-						<td id="noticRegDate"><%=boardDetailVO.getRegDate()%></td>
+						<tr>
+							<th>등록자</th>
+							<td id="noticEmpName">${boardDetailVO.getWriter() }</td>
+							<th>등록일</th>
+							<td id="noticRegDate">${boardDetailVO.getRegDate().substring(0, 10) }</td>
+						</tr>
 						<tr>
 							<th>내용</th>
 							<td id="contrnTd" colspan="3" height="400" valign="top">
 								<div class="contents6" id="noticeContents">
-									<%=boardDetailVO.getContent()%>
+									${fn:replace(boardDetailVO.getContent(), replaceChar, "<br/>") }
 								</div>
 							</td>
 						</tr>
 					</thead>
 				</table>
-				<!-- 1페이지나 라스트페이지에선 이전 또는 다음 버튼 disabled -->
 				<form action="/delBoard" method="post">
 					<div class="btns">
-						<input type="button" value="목록" onclick="location.href='/list/?pageIndex=<%=boardDetailVO.getCurPage()%>'">
+						<input type="button" value="목록"
+							onclick="location.href='/list/?pageIndex=${boardDetailVO.getCurPage()}'">
 						<input type="button" value="수정"
-							onclick="location.href='/update/<%=boardDetailVO.getIdx()%>'">
-						<input type="hidden" name="idx"
-							value="<%=boardDetailVO.getIdx()%>"> <input type="submit"
-							value="삭제">
+							onclick="location.href='/update/${boardDetailVO.getIdx()}'">
+						<input type="hidden" name="idx" value="${boardDetailVO.getIdx()}">
+						<input type="submit" value="삭제">
 					</div>
 				</form>
 			</div>

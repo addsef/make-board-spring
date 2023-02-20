@@ -6,6 +6,7 @@
 <html>
 <head>
 <link href="${path}/resources/css/common.css" rel="stylesheet" />
+<link href="${path}/resources/css/board-inp.css" rel="stylesheet" />
 <meta charset="UTF-8">
 <title>글 등록하기</title>
 </head>
@@ -29,23 +30,28 @@
 								<td colspan="3" id="noticeTitle"><input class="inp_title"
 									type="text" name="title"></td>
 							</tr>
-							<th>등록자</th>
-							<td id="noticEmpName"><input class="inp_writer" type="text" name="writer"></td>
-							<th>등록일</th>
-							<td id="noticRegDate"><input type="date" name="regDate" id="regDate" readonly></td>
-							<script>
-							 document.getElementById('regDate').value = new Date().toISOString().substring(0, 10);;
-							</script>
+							<tr>
+								<th>등록자</th>
+								<td id="noticEmpName"><input class="inp_writer" type="text"
+									name="writer"></td>
+								<th>등록일</th>
+								<td id="noticRegDate"><input type="date" class="inp_date" name="regDate"
+									id="regDate" tabindex="-1" readonly></td>
+							</tr>
 							<tr>
 								<th>내용</th>
 								<td id="contrnTd" colspan="3" height="400" valign="top">
 									<div class="contents6" id="noticeContents">
-										<textarea name="content"></textarea>
+										<textarea name="content" class="inp_content"></textarea>
 									</div>
 								</td>
 							</tr>
 						</thead>
 					</table>
+					<script>
+						document.getElementById('regDate').value = new Date()
+								.toISOString().substring(0, 10);
+					</script>
 					<div class="btns">
 						<input type="button" value="취소" onclick="location.href='/list'">
 						<input type="submit" value="등록">
