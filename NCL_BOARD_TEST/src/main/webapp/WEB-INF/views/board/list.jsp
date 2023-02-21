@@ -29,9 +29,14 @@
 				<div class="title">
 					<h1>게시판</h1>
 					<div class="search_area">
-						<form>
-							<input type="search" name="keyword" placeholder="Search">
-							<span>검색</span>
+						<form action="/list" method="get">
+							<select name="searchCondition" id="condition">
+								<option value="title">제목</option>
+								<option value="title_content">제목+내용</option>
+								<option value="writer">작성자</option>
+							</select> <input type="search" name="searchKeyword" id="keyword"
+								placeholder="Search">
+							<button type="submit">검색</button>
 						</form>
 					</div>
 				</div>
@@ -96,6 +101,7 @@
 						</script>
 					</c:if>
 					<div class="enroll">
+						<input type="button" value="목록" onclick="location.href='/list'">
 						<input type="button" value="등록" onclick="location.href='/insert'">
 					</div>
 				</div>

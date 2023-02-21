@@ -25,5 +25,7 @@ public interface BoardService {
 
 	//수정
 	int udtBoard(BoardVO boardVO);
+	
+	
 
 }
