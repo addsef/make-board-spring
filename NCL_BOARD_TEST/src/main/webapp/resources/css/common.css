@@ -373,3 +373,8 @@ h1 {
   margin-bottom: 20px;
   cursor: pointer;
 }
+
+.curPage {
+	color: blue;
+	font-weight: 600;
+}
