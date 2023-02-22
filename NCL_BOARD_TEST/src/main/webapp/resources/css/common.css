@@ -164,24 +164,29 @@ h1 {
 }
 
 .search_area {
-	width: 300px;
+	width: 400px;
 	height: 40px;
 	border-radius: 5px;
+	font-size: 1.4em;
+	float: left;
 }
 
 .search_area>form>input {
 	width: 230px;
-	height: 40px;
+	height: 20px;
 	color: black;
 	padding-left: 10px;
 }
 
-.search_area>form>span {
+.search_area>form>button {
 	padding-left: 10px;
-	width: 50px;
+	width: auto;
 	color: black;
 	font-weight: bold;
 	cursor: pointer;
+	background-color: #fff;
+	border: none;
+	text-align: center;
 }
 
 .b_2 {
@@ -367,4 +372,9 @@ h1 {
   color: #fff;
   margin-bottom: 20px;
   cursor: pointer;
+}
+
+.curPage {
+	color: blue;
+	font-weight: 600;
 }

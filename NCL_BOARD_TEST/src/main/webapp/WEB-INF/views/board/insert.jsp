@@ -35,8 +35,8 @@
 								<td id="noticEmpName"><input class="inp_writer" type="text"
 									name="writer"></td>
 								<th>등록일</th>
-								<td id="noticRegDate"><input type="date" class="inp_date" name="regDate"
-									id="regDate" tabindex="-1" readonly></td>
+								<td id="noticRegDate"><input type="date" class="inp_date"
+									name="regDate" id="regDate" tabindex="-1" readonly></td>
 							</tr>
 							<tr>
 								<th>내용</th>
@@ -53,7 +53,7 @@
 								.toISOString().substring(0, 10);
 					</script>
 					<div class="btns">
-						<input type="button" value="취소" onclick="location.href='/list'">
+						<input type="button" value="취소" onclick="history.back()">
 						<input type="submit" value="등록">
 					</div>
 				</form>
