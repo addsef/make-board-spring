@@ -4,13 +4,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
-<%@page import="kr.nclcorp.comm.vo.BoardVO"%>
-<%@page import="kr.nclcorp.comm.vo.PaginationVO"%>
-<%@page import="java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" href="data:,">
 <link href="${path}/resources/css/boardlist.css" rel="stylesheet" />
 <link href="${path}/resources/css/common.css" rel="stylesheet" />
@@ -27,7 +25,7 @@
 		<div class="board">
 			<div class="board_1">
 				<div class="title">
-					<h1 style="cursor:pointer;" onclick="location.href = '/list'">게시판</h1>
+					<h1 style="cursor: pointer;" onclick="location.href = '/list'">게시판</h1>
 					<div class="search_area">
 						<form action="/list" method="get">
 							<select name="searchCondition" id="condition">
@@ -42,14 +40,14 @@
 				</div>
 				<table class="b_2">
 					<colgroup>
-						<col width="10%">
+<%-- 						<col width="10%"> --%>
 						<col width="*">
 						<col width="20%">
 						<col width="20%">
 					</colgroup>
 					<thead>
 						<tr>
-							<th style="padding: 8px;">ID</th>
+<!-- 							<th style="padding: 8px;">ID</th> -->
 							<th style="padding: 8px;">제목</th>
 							<th style="padding: 8px;">등록자</th>
 							<th style="padding: 8px;">등록일</th>
@@ -59,7 +57,7 @@
 						<!-- 컨트롤러로부터 현재 페이지 인덱스를 받아와서 해당 페이지에 있는 게시글들만 보여지도록  -->
 						<c:forEach var="board" items="${boardListVO }">
 							<tr>
-								<td>${board.getIdx() }</td>
+<!-- 								<td></td> -->
 								<td><a href="/detail/${board.getIdx() }">${board.getTitle() }</a></td>
 								<td>${board.getWriter() }</td>
 								<td>${board.getRegDate().substring(0, 10)}</td>
@@ -67,7 +65,7 @@
 						</c:forEach>
 						<c:if test="${paginationVO.getListCnt() == 0 }">
 							<tr>
-								<td colspan= "4">조회된 글이 없습니다.</td>
+								<td colspan="4">검색 결과가 없습니다.</td>
 							</tr>
 						</c:if>
 					</tbody>
@@ -78,7 +76,8 @@
 					<!-- 이전 버튼 or 다음 버튼 비활성화  -->
 					<!-- 현재 페이지 번호에 색을 부여 -->
 					<ul class="num_ul">
-						<li><a id="first" href="/list?pageIndex=${paginationVO.getStartPage() }">First</a></li>
+						<li><a id="first"
+							href="/list?pageIndex=${paginationVO.getStartPage() }">First</a></li>
 						<li><a id="prev"
 							href="/list?pageIndex=${paginationVO.getPrevPage() }">Previous</a></li>
 						<c:forEach var="num" begin="${paginationVO.getStartPage() }"
@@ -87,13 +86,14 @@
 						</c:forEach>
 						<li><a id="next"
 							href="/list?pageIndex=${paginationVO.getNextPage() }">Next</a></li>
-						<li><a id="last" href="/list?pageIndex=${paginationVO.getEndPage() }">Last</a></li>
+						<li><a id="last"
+							href="/list?pageIndex=${paginationVO.getEndPage() }">Last</a></li>
 					</ul>
 					<c:if
 						test="${paginationVO.getCurPage() eq paginationVO.getStartPage() }">
 						<script>
-// 							document.getElementById('prev').setAttribute(
-// 									'href', '');
+							// 							document.getElementById('prev').setAttribute(
+							// 									'href', '');
 							document.getElementById('first').style.display = 'none';
 							document.getElementById('prev').style.display = 'none';
 						</script>
@@ -101,8 +101,14 @@
 					<c:if
 						test="${paginationVO.getCurPage() eq paginationVO.getEndPage() }">
 						<script>
-// 							document.getElementById('next').setAttribute(
-// 									'href', '');
+							// 							document.getElementById('next').setAttribute(
+							// 									'href', '');
+							document.getElementById('next').style.display = 'none';
+							document.getElementById('last').style.display = 'none';
+						</script>
+					</c:if>
+					<c:if test="${paginationVO.getListCnt() == 0 }">
+						<script>
 							document.getElementById('next').style.display = 'none';
 							document.getElementById('last').style.display = 'none';
 						</script>

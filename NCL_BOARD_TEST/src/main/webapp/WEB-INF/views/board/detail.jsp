@@ -56,7 +56,7 @@
 				<form action="/delBoard" method="post">
 					<div class="btns">
 						<input type="button" value="목록"
-							onclick="history.back()">
+							onclick="location.href='/list?pageIndex=${boardDetailVO.getCurPage()}'">
 						<input type="button" value="수정"
 							onclick="location.href='/update/${boardDetailVO.getIdx()}'">
 						<input type="hidden" name="idx" value="${boardDetailVO.getIdx()}">

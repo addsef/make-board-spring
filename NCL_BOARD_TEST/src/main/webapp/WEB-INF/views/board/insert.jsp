@@ -53,7 +53,7 @@
 								.toISOString().substring(0, 10);
 					</script>
 					<div class="btns">
-						<input type="button" value="취소" onclick="location.href='/list'">
+						<input type="button" value="취소" onclick="history.back()">
 						<input type="submit" value="등록">
 					</div>
 				</form>
