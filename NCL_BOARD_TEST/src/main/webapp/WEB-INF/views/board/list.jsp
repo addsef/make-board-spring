@@ -57,7 +57,9 @@
 							<tr>
 								<!-- 총 글 수 -( ((현재페이지 - 1) * 화면 당 게시글 로우행 수(10) ) + 로우인덱스(forEach의 인덱스) -->
 								<td>${paginationVO.getListCnt() - (((paginationVO.getCurPage() - 1) * 10) + num.index)}</td>
-								<td><a href="/detail/${board.getIdx() }">${board.getTitle() }</a></td>
+								<!-- 상세 페이지로 갈 때 pageIndex를 url 파라미터로 같이 보냄 -->
+								<td><a
+									href="/detail/${board.getIdx() }?pageIndex=${paginationVO.getCurPage()}">${board.getTitle() }</a></td>
 								<td>${board.getWriter() }</td>
 								<td>${board.getRegDate().substring(0, 10)}</td>
 							</tr>
