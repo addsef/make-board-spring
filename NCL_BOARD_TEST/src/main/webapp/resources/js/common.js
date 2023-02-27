@@ -506,3 +506,5 @@ function weekNumberByMonth(dateFormat) {
 	 
 	  return {year, month, weekNo};
 }
+
+// -----------------------------------------------------------------------------

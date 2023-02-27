@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -18,7 +17,7 @@
 	rel="stylesheet">
 <title>게시판 리스트</title>
 </head>
-<body class="body"> 
+<body class="body">
 	<div class="main_contanier">
 		<!-- 게시판 리스트 목록 -->
 		<div class="board">
@@ -56,6 +55,7 @@
 						<!-- 컨트롤러로부터 현재 페이지 인덱스를 받아와서 해당 페이지에 있는 게시글들만 보여지도록  -->
 						<c:forEach var="board" items="${boardListVO }" varStatus="num">
 							<tr>
+								<!-- 총 글 수 -( ((현재페이지 - 1) * 화면 당 게시글 로우행 수(10) ) + 로우인덱스(forEach의 인덱스) -->
 								<td>${paginationVO.getListCnt() - (((paginationVO.getCurPage() - 1) * 10) + num.index)}</td>
 								<td><a href="/detail/${board.getIdx() }">${board.getTitle() }</a></td>
 								<td>${board.getWriter() }</td>
@@ -81,7 +81,14 @@
 							href="/list?pageIndex=${paginationVO.getPrevPage() }">Previous</a></li>
 						<c:forEach var="num" begin="${paginationVO.getStartPage() }"
 							end="${paginationVO.getEndPage() }">
-							<li><a href="/list?pageIndex=${num }">${num }</a></li>
+							<c:choose>
+								<c:when test="${num eq paginationVO.getCurPage()}">
+									<li class="active"><a href="/list?pageIndex=${num }">${num }</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="/list?pageIndex=${num }">${num }</a></li>
+								</c:otherwise>
+							</c:choose>
 						</c:forEach>
 						<li><a id="next"
 							href="/list?pageIndex=${paginationVO.getNextPage() }">Next</a></li>
