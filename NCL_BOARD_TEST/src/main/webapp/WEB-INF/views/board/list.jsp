@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -19,7 +18,7 @@
 	rel="stylesheet">
 <title>게시판 리스트</title>
 </head>
-<body class="body">
+<body class="body"> 
 	<div class="main_contanier">
 		<!-- 게시판 리스트 목록 -->
 		<div class="board">
@@ -27,7 +26,7 @@
 				<div class="title">
 					<h1 style="cursor: pointer;" onclick="location.href = '/list'">게시판</h1>
 					<div class="search_area">
-						<form action="/list" method="get">
+						<form action="/list" method="get" autocomplete="off">
 							<select name="searchCondition" id="condition">
 								<option value="title">제목</option>
 								<option value="title_content">제목+내용</option>
@@ -40,14 +39,14 @@
 				</div>
 				<table class="b_2">
 					<colgroup>
-<%-- 						<col width="10%"> --%>
+						<col width="10%">
 						<col width="*">
 						<col width="20%">
 						<col width="20%">
 					</colgroup>
 					<thead>
 						<tr>
-<!-- 							<th style="padding: 8px;">ID</th> -->
+							<th style="padding: 8px;">No.</th>
 							<th style="padding: 8px;">제목</th>
 							<th style="padding: 8px;">등록자</th>
 							<th style="padding: 8px;">등록일</th>
@@ -55,9 +54,9 @@
 					</thead>
 					<tbody>
 						<!-- 컨트롤러로부터 현재 페이지 인덱스를 받아와서 해당 페이지에 있는 게시글들만 보여지도록  -->
-						<c:forEach var="board" items="${boardListVO }">
+						<c:forEach var="board" items="${boardListVO }" varStatus="num">
 							<tr>
-<!-- 								<td></td> -->
+								<td>${paginationVO.getListCnt() - (((paginationVO.getCurPage() - 1) * 10) + num.index)}</td>
 								<td><a href="/detail/${board.getIdx() }">${board.getTitle() }</a></td>
 								<td>${board.getWriter() }</td>
 								<td>${board.getRegDate().substring(0, 10)}</td>
