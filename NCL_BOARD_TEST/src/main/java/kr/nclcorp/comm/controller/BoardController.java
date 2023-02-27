@@ -45,12 +45,12 @@ public class BoardController {
 	}
 
 	// 상세 페이지
-	@GetMapping(value = "/detail/{id}")
-	public String detail(@PathVariable("id") Integer id, Model model) {
+	@GetMapping(value = "/detail/{title}")
+	public String detail(@PathVariable("title") String title, Model model) {
 		logger.info("========= 상세 페이지 ========= ");
 
 		BoardVO boardVO = new BoardVO();
-		boardVO.setIdx(id);
+		boardVO.setTitle(title);
 
 		// 게시판 상세
 		BoardVO boardDetailVO = boardService.selBoardDetail(boardVO);
@@ -66,12 +66,12 @@ public class BoardController {
 	}
 
 	// 수정페이지
-	@GetMapping(value = "/update/{id}")
-	public String update(@PathVariable("id") Integer id, Model model) {
+	@GetMapping(value = "/update/{title}")
+	public String update(@PathVariable("title") String title, Model model) {
 		logger.info("========= 수정 페이지 ========= ");
 
 		BoardVO boardVO = new BoardVO();
-		boardVO.setIdx(id);
+		boardVO.setTitle(title);
 
 		BoardVO boardDetailVO = boardService.selBoardDetail(boardVO);
 		model.addAttribute("boardDetailVO", boardDetailVO);

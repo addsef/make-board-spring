@@ -59,7 +59,7 @@
 								<td>${paginationVO.getListCnt() - (((paginationVO.getCurPage() - 1) * 10) + num.index)}</td>
 								<!-- 상세 페이지로 갈 때 pageIndex를 url 파라미터로 같이 보냄 -->
 								<td><a
-									href="/detail/${board.getIdx() }?pageIndex=${paginationVO.getCurPage()}">${board.getTitle() }</a></td>
+									href="/detail/${board.getTitle() }?pageIndex=${paginationVO.getCurPage()}">${board.getTitle() }</a></td>
 								<td>${board.getWriter() }</td>
 								<td>${board.getRegDate().substring(0, 10)}</td>
 							</tr>
@@ -123,7 +123,7 @@
 					</c:if>
 					<div class="enroll">
 						<input type="button" value="목록" onclick="location.href='/list'">
-						<input type="button" value="등록" onclick="location.href='/insert'">
+						<input id="insert_btn" type="button" value="등록" onclick="location.href='/insert'">
 					</div>
 				</div>
 			</div>

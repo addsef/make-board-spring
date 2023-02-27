@@ -58,7 +58,7 @@
 						<input type="button" value="목록"
 							onclick="location.href='/list?pageIndex=${param.pageIndex}'">
 						<input type="button" value="수정"
-							onclick="location.href='/update/${boardDetailVO.getIdx()}'">
+							onclick="location.href='/update/${boardDetailVO.getTitle()}'">
 						<input type="hidden" name="idx" value="${boardDetailVO.getIdx()}">
 						<input type="submit" value="삭제">
 					</div>

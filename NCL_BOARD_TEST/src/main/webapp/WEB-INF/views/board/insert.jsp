@@ -36,7 +36,8 @@
 								<td id="noticEmpName"><input class="inp_writer" type="text"
 									name="writer"></td>
 								<th>등록일</th>
-								<td id="noticRegDate"><input type="date" class="inp_date"
+								<td id="noticRegDate">
+								<input type="date" class="inp_date"
 									name="regDate" id="regDate" tabindex="-1" readonly></td>
 							</tr>
 							<tr>
@@ -57,6 +58,7 @@
 						<input type="button" value="취소" onclick="history.back()">
 						<input type="submit" value="등록">
 					</div>
+					
 				</form>
 			</div>
 		</div>

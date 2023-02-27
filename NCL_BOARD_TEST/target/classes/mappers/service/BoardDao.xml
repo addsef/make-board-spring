@@ -45,7 +45,7 @@
 	<!-- 게시판 상세 -->
 	<select id="selBoardDetail" parameterType="boardVO" resultType="boardVO">
 		SELECT * FROM BOARD
-		WHERE IDX = #{idx}
+		WHERE TITLE = #{title}
 		LIMIT 1
 	</select>
 	
@@ -69,7 +69,7 @@
 			CONTENT = #{content},
 			WRITER = #{writer},
 			REG_DATE = #{regDate}
-		WHERE IDX = #{idx}
+		WHERE TITLE = #{title}
 	</delete>
 	
 </mapper>
