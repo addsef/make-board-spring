@@ -4,7 +4,7 @@ spring 연습
 spring 활용해서 게시판 만들기 
 
 Tomcat 9.0 
-Spring Tools 4 sts
+Spring Tools 3 sts
 
 Controller - https://github.com/devDevyne/make-board-spring/blob/dev1_ver2/NCL_BOARD_TEST/src/main/java/kr/nclcorp/comm/controller/BoardController.java
 
